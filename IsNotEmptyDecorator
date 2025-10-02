@@ -1,0 +1,9 @@
+import { applyDecorators } from '@nestjs/common';
+import { IsNotEmpty, ValidateIf } from 'class-validator';
+
+export function IsNotEmptyOptional() {
+  return applyDecorators(
+    ValidateIf((_, value) => value !== undefined),
+    IsNotEmpty()
+  );
+}
